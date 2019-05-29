@@ -3,8 +3,8 @@ The customer need not have to remember all the ingredients required or prick the
 #shopNdrop
 shopNdrop is the demonstration application where it combines Cloud IoT Core and Cloud Machine Learning Engine.
 
-#Requirements 
-Google Cloud Platform billing enabled project --
+# Requirements 
+Google Cloud Platform billing enabled project </br>
 Enable the following APIs
 Google Cloud Storage JSON API
 Cloud IoT API
@@ -13,7 +13,7 @@ Cloud Machine Learning Engine
 Kubernetes Engine API
 Raspberry Pi, Camera module and touch display
 See Setup Raspberry Pi for more details
-#Setup 
+# Setup 
 Name device ID for a new device and register it to Cloud IoT Core registory
 Assemble Raspberry Pi device (see Setup Raspberry Pi for more details)
 Built and push Docker container ($ cd gke; docker build -t gcr.io/${PROJECT_ID}/iost-worker .; docker push gcr.io/${PROJECT_ID}/iost-worker)
