@@ -1,0 +1,43 @@
+# shopNdrop demo (Raspberry Pi)
+## Setup Raspberry Pi for Smart Shopping Navigator demo
+### Requirements
+* Raspberry Pi 3 Model B
+* SD Card (more than 8GB)
+* Raspberry Pi Wide Angle Camera Module (SEEED-114990838)
+* HyperPixel (3.5" Hi-Res Display for Raspberry Pi)
+## Setup Raspberry Pi
+See public documentation for details about setup Raspberry Pi in general.
+
+1. shopNdrop Demo applications are designed to work on Rasbian stretch with Desktop.
+
+2. Download novel rasbian image file with desktop from https://www.raspberrypi.org/downloads/raspbian/
+3. Install operating system image to SD card. See https://www.raspberrypi.org/documentation/installation/installing-images/
+4. run raspi-config to setup network settings (if you want to use Wi-Fi), hostname, change password etc...
+5. Update packages. apt-get update && apt-get upgrade.
+6. Install some required packages. apt-get install unclutter.
+## Setup Raspberry Pi devices
+### Camera
+1. Enable camera module by raspi-config command. See Camera configuration for more details.
+2. Connect camera module by FFC (Flexible Flat Cable).
+### HyperPixel
+1. Insert HyperPixel into GPIO port.
+2. Follow instructions in HyperPixel driver
+## Install Smart Shopping Navigator demo applications
+### Copy files to Raspberry Pi.
+$ git clone https://github.com/groovenauts/SmartShoppingNavigator.git
+$ cd SmartShoppingNavigator/raspberrypi/files
+$ rsync -auz home/pi/ /home/pi/
+$ sudo rsync -auz etc/ /etc/
+### Create device in Cloud IoT Core
+The corresponding device resource should be created in Cloud IoT Core. Please read Creating Registries and Devices for details.
+
+During creating device in Cloud IoT Core, you should create device key pairs to authenticate the device. Smart Shopping Navigator demo applications support only ES256 key. Please generate ES256 key pair.
+
+And copy private key file to Raspberry Pi as /home/pi/ec_private.pem.
+
+### Create config file
+Edit /home/pi/watchdog.conf to specify the GCP project, Cloud IoT registry/device.
+
+### Enable services
+$ sudo systemctl enable capture
+$ sudo systemctl enable dashboard
