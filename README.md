@@ -1,6 +1,6 @@
 # shopNdrop
 The customer need not have to remember all the ingredients required or prick their heads to know what should be next item &amp; will get alert if they are purchasing the item which is already there at home. Use of IoT and Machine learning algorithms to increase the product sells at higher rates. To automate the product purchase by sending the data directly to the particular Super Market.
-#shopNdrop
+# shopNdrop
 shopNdrop is the demonstration application where it combines Cloud IoT Core and Cloud Machine Learning Engine.
 
 # Requirements 
